@@ -1,6 +1,6 @@
 """PDC Mecca daily report builder.
 Usage: python3 build_report.py template.pptx data.json out.pptx
-Any key missing/null in data.json leaves that part of the template untouched
+Any number missing/null/"—" in data.json is written as 0 (lists become empty)
 and is listed in the printed "MISSING" report.
 """
 import copy, json, sys
@@ -9,10 +9,43 @@ from pptx.util import Pt, Emu
 from pptx.oxml.ns import qn
 
 src, data_path, out = sys.argv[1:4]
+import os
 D = json.load(open(data_path, encoding='utf-8'))
+REF = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data_2026-11-09.json'), encoding='utf-8'))
+missing = []
+
+def zero_like(x):
+    if isinstance(x, dict): return {k: zero_like(v) for k, v in x.items()}
+    if isinstance(x, list): return []
+    if isinstance(x, (int, float)) and not isinstance(x, bool): return 0
+    return None
+
+def fill(d, ref, path=''):
+    """Replace missing / null / dash values with zeros (per reference shape); log them."""
+    if isinstance(ref, dict) and path != 'attachments_pending':
+        d = d if isinstance(d, dict) else {}
+        for k, rv in ref.items():
+            if k in ('source_date',):
+                continue
+            pth = f'{path}.{k}' if path else k
+            v = d.get(k)
+            if isinstance(rv, dict) and k != 'attachments_pending':
+                d[k] = fill(v, rv, pth)
+            elif k == 'attachments_pending':
+                if not isinstance(v, dict) or not v:
+                    missing.append(pth); d[k] = {n: [0, 0] for n in rv}
+            elif isinstance(rv, list):
+                if v is None: missing.append(pth); d[k] = []
+            elif v is None or (isinstance(v, str) and v.strip(' -—') == '' and isinstance(rv, (int, float))):
+                missing.append(pth); d[k] = zero_like(rv)
+            elif isinstance(v, str) and isinstance(rv, (int, float)) and not isinstance(rv, bool):
+                d[k] = float(v.replace(',', '').strip(' -—')) if '.' in v else int(v.replace(',', '').strip(' -—'))
+        return d
+    return d
+
+D = fill(D, REF)
 p = Presentation(src)
 S1, S2, S3 = p.slides[0], p.slides[1], p.slides[2]
-missing = []
 
 def sh(slide, sid):
     for s in slide.shapes:
@@ -45,10 +78,8 @@ def g(path):
     cur = D
     for k in path.split('.'):
         if not isinstance(cur, dict) or cur.get(k) is None:
-            missing.append(path); return None
+            return None
         cur = cur[k]
-    if cur in ('', '—', '-'):
-        missing.append(path); return None
     return cur
 
 def f(v):  # number formatting
@@ -98,7 +129,7 @@ if v is not None: st(S1, 114, f'الإجمالي {v}')
 for sid, k in [(116, 'accepted'), (119, 'in_progress'), (122, 'ready_to_send'), (125, 'need_review'),
                (128, 'rejected_with_notes'), (131, 'late')]:
     v = g(f'{r}.pdc.{k}')
-    st(S1, sid, f(v) if v is not None else '—')
+    st(S1, sid, f(v if v is not None else 0))
 
 # attachments pending table
 att = g('attachments_pending')  # {"consultant": [at_consultant, at_contractor], ...}
@@ -120,10 +151,10 @@ if sap:
     for k, (pid, cid, mid, shid) in zip(('completed', 'in_review', 'not_started'),
                                          [(55, 56, 57, 58), (62, 63, 64, 65), (69, 70, 71, 72)]):
         n, am = sap[k]['count'], sap[k]['amount']
-        st(S2, pid, f'{round(n / N * 100)}%')
+        st(S2, pid, f'{round(n / N * 100) if N else 0}%')
         st(S2, cid, str(n), '  أمر')
         st(S2, mid, f'{am / 1e6:.2f} مليون ﷼')
-        st(S2, shid, pct(am / A))
+        st(S2, shid, pct(am / A) if A else '0%')
 put(S2, 76, 'sap_extra.generator_receipts')
 put(S2, 81, 'sap_extra.temp_cables')
 
@@ -135,12 +166,12 @@ for sid, k in [(87, 'total'), (89, 'replacements_total'), (91, 'cabinets_total')
     put(S2, sid, f'{m}.{k}')
 rep = [g(f'{m}.replacements.{k}') for k in ('done', 'in_progress', 'awaiting_permits', 'surveyed')]
 tot = g(f'{m}.replacements_total')
-if None not in rep and tot:
+if None not in rep and tot is not None:
     for sid, v in zip((101, 103, 105, 107), rep):
         st(S2, sid, str(v))
-    st(S2, 100, f'              {rep[0] / tot * 100:.1f}%  ')
+    st(S2, 100, f'              {(rep[0] / tot * 100) if tot else 0:.1f}%  ')
     track, fill = sh(S2, 109), sh(S2, 110)
-    w = int(track.width * rep[0] / tot)
+    w = int(track.width * rep[0] / tot) if tot else 0
     fill.width = Emu(w); fill.left = Emu(track.left + track.width - w)
 cd, ct = g(f'{m}.cabinets_done'), g(f'{m}.cabinets_total')
 if cd is not None and ct is not None:
@@ -151,7 +182,13 @@ put(S2, 125, f'{m}.stations_done')
 # ---------- Slide 3: safety ----------
 sf = g('safety')
 if sf:
-    st(S3, 940, sf['report_label'])
+    lbl = sf.get('report_label')
+    if not lbl and date:
+        import re
+        mm = re.search(r'(\d{1,2})/(\d{1,2})/(\d{4})', date)
+        months = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر']
+        if mm: lbl = f'التقرير {int(mm[1]):02d} · {months[int(mm[2]) - 1]} {mm[3]}'
+    if lbl: st(S3, 940, lbl)
     t, cu = sf['today'], sf['cumulative']
     k = lambda sid, i, txt: st(S3, sid, txt, para=i)
     k(202, 0, f(t['visits']))
@@ -164,7 +201,7 @@ if sf:
     k(207, 0, f(t['stops']))
     k(209, 0, f(cu['visits'])); k(210, 0, f(cu['workshops']))
     k(211, 0, f(cu['observations'])); k(211, 2, f"{cu['obs_closed']:,} مغلقة · {cu['obs_open']:,} مفتوحة")
-    k(211, 3, f"نسبة الإغلاق {cu['close_rate']}")
+    k(211, 3, f"نسبة الإغلاق {cu.get('close_rate') or '0%'}")
     k(212, 0, f(cu['violations'])); k(212, 2, f"سلامة {cu['viol_safety']} · جودة {cu['viol_quality']}")
     k(213, 0, f(cu['viol_amount'])); k(213, 0, f(cu['viol_amount']))
     k(214, 0, f(cu['stops']))
@@ -173,7 +210,10 @@ if sf:
     obs = sf.get('observations_list') or []
     q = sf.get('quality_observations_list') or []
     st(S3, 34, 'أبرز ملاحظات ', 'الجودة', ' المرصودة (', str(len(q)), ')')
-    if q: set_paras(sh(S3, 36), q)
+    set_paras(sh(S3, 36), q or [''])
+    st(S3, 215, f'أبرز ملاحظات السلامة المرصودة ({len(obs)})')
+    if not obs:
+        set_paras(sh(S3, 219), ['—'])
     if obs:
         st(S3, 215, f'أبرز ملاحظات السلامة المرصودة ({len(obs)})')
         ob = sh(S3, 219)
@@ -197,6 +237,13 @@ if sf:
                     for rr in pp.runs: rr.font.size = Pt(9.5 if len(obs) > 8 else 11)
 
     viol = sf.get('violations_list') or []
+    if not viol:
+        tshape = sh(S3, 220); tb = tshape.table; rows = list(tb.rows)
+        for row in rows[2:-1]: tb._tbl.remove(row._tr)
+        rows = list(tb.rows)
+        for cell in rows[1].cells: set_para(cell.text_frame.paragraphs[0], '—')
+        set_para(rows[-1].cells[len(rows[-1].cells) - 1].text_frame.paragraphs[0], '0')
+        set_paras(sh(S3, 221), [('0', '  مخالفة')])
     if viol:
         tshape = sh(S3, 220); tb = tshape.table; tbl_el = tb._tbl
         rows = list(tb.rows)

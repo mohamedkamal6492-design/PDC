@@ -2,7 +2,7 @@
 
 Builds the 3-slide daily report from `template.pptx` + one `data_YYYY-MM-DD.json` file:
 `python3 build_report.py template.pptx data_YYYY-MM-DD.json output/التقرير_اليومي_DD-MM-YYYY.pptx`
-The script prints `MISSING:` with every field that was null/absent (those parts keep the template values).
+The script prints `MISSING:` with every field that was null/absent. **User rule: any number not written in the email is shown as 0** (the script does this automatically; empty lists → empty sections). Never carry numbers forward from previous days.
 Use `data_2026-11-09.json` as the reference for the JSON shape.
 
 ## Where the data comes from
@@ -36,9 +36,9 @@ Check spam too (`in:anywhere`). The email BODY holds the WhatsApp texts. The att
   - violations_list: one object per violation: date, description, class (A/B/…), consultant, contractor, amount.
   - mashaer: total, new_today, replacements_total, cabinets_total, meters_total, stations_total,
     replacements.done/in_progress/awaiting_permits/surveyed, cabinets_done, meters_done, stations_done, source_date.
-  Any safety/mashaer field not mentioned → null (do NOT carry forward silently). If a whole section is absent from the
-  email, copy it from the most recent data file and report it as NOT UPDATED (with the date it comes from).
+  Any safety/mashaer field not mentioned → null (the script writes it as 0). If a whole section is absent from the
+  email, leave it null/empty — do NOT copy from previous days — and report it as missing.
 
 ## Rules
-- Never invent numbers. Anything not found → null, and list it in the summary.
+- Never invent numbers. Anything not found → null (rendered as 0), and list it in the summary.
 - Flag anything that looks inconsistent (e.g. totals that don't add up, values identical to the previous day).

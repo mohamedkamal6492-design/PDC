@@ -1,23 +1,174 @@
 {
  "date": "الثلاثاء 10/11/2026",
- "construction": {"assigned_total": null, "assigned_connections": null, "assigned_projects": null,
-  "wo_190_203": null, "wo_155": null, "cert_accepted_today": null, "cert_ready_156": null,
-  "cert_accepted_170": null, "cert_rejected_171": null, "fines_amount": null, "fines_certificates": null,
-  "close_300": null, "close_230": null, "close_with_fine": null, "close_without_fine": null},
+ "construction": {
+  "assigned_total": 7,
+  "assigned_connections": 7,
+  "assigned_projects": 0,
+  "wo_190_203": 1927,
+  "wo_155": 1621,
+  "cert_accepted_today": 0,
+  "cert_ready_156": 87,
+  "cert_accepted_170": 78,
+  "cert_rejected_171": 7,
+  "fines_amount": 2463.62,
+  "fines_certificates": 105,
+  "close_300": 764,
+  "close_230": 43,
+  "close_with_fine": 0,
+  "close_without_fine": 0
+ },
  "assets": {
-  "overall": {"accepted": 223, "in_progress": 64, "late": 45, "rejected_with_notes": 43},
-  "by_entity": {"projects": 149, "connections": 84, "haram": 17, "khulais": 9, "allith": 6},
-  "pdc": {"total": 153, "accepted": 18, "in_progress": 122, "ready_to_send": 30, "need_review": 52, "rejected_with_notes": 30, "late": null}},
- "attachments_pending": {"سمير أبو غلية": [18, 8], "الصخرة المشرفة": [12, 8], "سعود كونسلت": [5, 29], "ابعاد الرؤية": [4, 16], "المعماريون": [6, 18]},
- "sap": {"completed": {"count": 998, "amount": 18277905}, "in_review": {"count": 379, "amount": 9630588}, "not_started": {"count": 5, "amount": 6141}},
- "sap_extra": {"generator_receipts": 6, "temp_cables": 1},
- "mashaer": {"source_date": "10/11/2026", "new_today": 26, "total": 707, "replacements_total": null, "cabinets_total": null, "meters_total": null, "stations_total": null,
-  "replacements": {"done": null, "in_progress": null, "awaiting_permits": null, "surveyed": null},
-  "cabinets_done": null, "meters_done": null, "stations_done": null},
- "safety": {"report_label": "التقرير 10 · نوفمبر 2026",
-  "today": {"visits": null, "pmss_safety": null, "cms": null, "pmss_exec": null, "workshops": null, "observations": null, "obs_closed": null, "obs_open": null,
-   "violations": null, "viol_safety": null, "viol_quality": null, "viol_amount": null, "amount_safety": null, "amount_quality": null, "stops": null},
-  "cumulative": {"visits": null, "workshops": null, "observations": null, "obs_closed": null, "obs_open": null, "close_rate": null,
-   "violations": null, "viol_safety": null, "viol_quality": null, "viol_amount": null, "stops": null},
-  "observations_list": [], "quality_observations_list": [], "violations_list": []}
+  "overall": {
+   "accepted": 223,
+   "in_progress": 64,
+   "late": 45,
+   "rejected_with_notes": 43
+  },
+  "by_entity": {
+   "projects": 149,
+   "connections": 84,
+   "haram": 17,
+   "khulais": 9,
+   "allith": 6
+  },
+  "pdc": {
+   "total": 153,
+   "accepted": 18,
+   "in_progress": 122,
+   "ready_to_send": 30,
+   "need_review": 52,
+   "rejected_with_notes": 30,
+   "late": null
+  }
+ },
+ "attachments_pending": {
+  "سمير أبو غلية": [
+   18,
+   8
+  ],
+  "الصخرة المشرفة": [
+   12,
+   8
+  ],
+  "سعود كونسلت": [
+   5,
+   29
+  ],
+  "ابعاد الرؤية": [
+   4,
+   16
+  ],
+  "المعماريون": [
+   6,
+   18
+  ]
+ },
+ "sap": {
+  "completed": {
+   "count": 998,
+   "amount": 18277905
+  },
+  "in_review": {
+   "count": 379,
+   "amount": 9630588
+  },
+  "not_started": {
+   "count": 5,
+   "amount": 6141
+  }
+ },
+ "sap_extra": {
+  "generator_receipts": 6,
+  "temp_cables": 1
+ },
+ "mashaer": {
+  "source_date": "10/11/2026",
+  "new_today": 36,
+  "total": 707,
+  "replacements_total": 578,
+  "cabinets_total": 3,
+  "meters_total": 0,
+  "stations_total": 123,
+  "replacements": {
+   "done": 75,
+   "in_progress": 20,
+   "awaiting_permits": 122,
+   "surveyed": 361
+  },
+  "cabinets_done": 3,
+  "meters_done": 0,
+  "stations_done": 82
+ },
+ "safety": {
+  "report_label": "التقرير 10 · نوفمبر 2026",
+  "today": {
+   "visits": 78,
+   "pmss_safety": 10,
+   "cms": 45,
+   "pmss_exec": 23,
+   "workshops": 12,
+   "observations": 27,
+   "obs_closed": 27,
+   "obs_open": 0,
+   "violations": 3,
+   "viol_safety": 3,
+   "viol_quality": 0,
+   "viol_amount": 9500,
+   "amount_safety": 9500,
+   "amount_quality": 0,
+   "stops": 1
+  },
+  "cumulative": {
+   "visits": 6849,
+   "workshops": 398,
+   "observations": 1555,
+   "obs_closed": 1555,
+   "obs_open": 0,
+   "close_rate": "100%",
+   "violations": 435,
+   "viol_safety": 400,
+   "viol_quality": 33,
+   "viol_amount": 1822000,
+   "stops": 107
+  },
+  "observations_list": [
+   "عدم وجود بطاقة العامل المشارك",
+   "عدم وجود لوحات ارشادية كافية على طول المسار",
+   "عدم اغلاق منطقة العمل",
+   "تخزين غير آمن للمواد الكيميائية",
+   "عدم وجود مكافح حريق معتمد",
+   "عدم سلامة المعدات (عدم وجود مسمار الامان لباكيت الحفار- تهريب زيت – عدم وجود زجاج على المعدة)",
+   "عدم وجود نموذج اجراءات العمل الامن في الموقع",
+   "عدم ازالة المخلفات اثناء العمل",
+   "عدم اكتمال البيانات على البطاقات التحذيرية",
+   "عدم ارتداء مهام الوقاية الشخصية (كمامات السلامة)"
+  ],
+  "quality_observations_list": [],
+  "violations_list": [
+   {
+    "date": "10-11-2026",
+    "description": "استخدام حواجز حماية تالفة",
+    "class": "C",
+    "consultant": "سمير أبو غلية",
+    "contractor": "دار العقيلي",
+    "amount": 2000
+   },
+   {
+    "date": "10-11-2026",
+    "description": "عدم سلامة المعدات",
+    "class": "B",
+    "consultant": "سمير أبو غلية",
+    "contractor": "دار العقيلي",
+    "amount": 2000
+   },
+   {
+    "date": "10-11-2026",
+    "description": "عدم حمل بطاقة التعميد والتأهيل في موقع العمل",
+    "class": "A",
+    "consultant": "سمير أبو غلية",
+    "contractor": "دار العقيلي",
+    "amount": 7000
+   }
+  ]
+ }
 }

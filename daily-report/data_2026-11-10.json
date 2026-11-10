@@ -1,0 +1,23 @@
+{
+ "date": "الثلاثاء 10/11/2026",
+ "construction": {"assigned_total": null, "assigned_connections": null, "assigned_projects": null,
+  "wo_190_203": null, "wo_155": null, "cert_accepted_today": null, "cert_ready_156": null,
+  "cert_accepted_170": null, "cert_rejected_171": null, "fines_amount": null, "fines_certificates": null,
+  "close_300": null, "close_230": null, "close_with_fine": null, "close_without_fine": null},
+ "assets": {
+  "overall": {"accepted": 223, "in_progress": 64, "late": 45, "rejected_with_notes": 43},
+  "by_entity": {"projects": 149, "connections": 84, "haram": 17, "khulais": 9, "allith": 6},
+  "pdc": {"total": 153, "accepted": 18, "in_progress": 122, "ready_to_send": 30, "need_review": 52, "rejected_with_notes": 30, "late": null}},
+ "attachments_pending": {"سمير أبو غلية": [18, 8], "الصخرة المشرفة": [12, 8], "سعود كونسلت": [5, 29], "ابعاد الرؤية": [4, 16], "المعماريون": [6, 18]},
+ "sap": {"completed": {"count": 998, "amount": 18277905}, "in_review": {"count": 379, "amount": 9630588}, "not_started": {"count": 5, "amount": 6141}},
+ "sap_extra": {"generator_receipts": 6, "temp_cables": 1},
+ "mashaer": {"source_date": "10/11/2026", "new_today": 26, "total": 707, "replacements_total": null, "cabinets_total": null, "meters_total": null, "stations_total": null,
+  "replacements": {"done": null, "in_progress": null, "awaiting_permits": null, "surveyed": null},
+  "cabinets_done": null, "meters_done": null, "stations_done": null},
+ "safety": {"report_label": "التقرير 10 · نوفمبر 2026",
+  "today": {"visits": null, "pmss_safety": null, "cms": null, "pmss_exec": null, "workshops": null, "observations": null, "obs_closed": null, "obs_open": null,
+   "violations": null, "viol_safety": null, "viol_quality": null, "viol_amount": null, "amount_safety": null, "amount_quality": null, "stops": null},
+  "cumulative": {"visits": null, "workshops": null, "observations": null, "obs_closed": null, "obs_open": null, "close_rate": null,
+   "violations": null, "viol_safety": null, "viol_quality": null, "viol_amount": null, "stops": null},
+  "observations_list": [], "quality_observations_list": [], "violations_list": []}
+}

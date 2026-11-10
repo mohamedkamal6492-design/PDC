@@ -1,0 +1,31 @@
+{
+ "date": "الإثنين 09/11/2026",
+ "construction": {"assigned_total": 30, "assigned_connections": 30, "assigned_projects": 0,
+  "wo_190_203": 1906, "wo_155": 1617, "cert_accepted_today": 0, "cert_ready_156": 87,
+  "cert_accepted_170": 78, "cert_rejected_171": 7, "fines_amount": 2463.62, "fines_certificates": 105,
+  "close_300": 764, "close_230": 43, "close_with_fine": 0, "close_without_fine": 0},
+ "assets": {
+  "overall": {"accepted": 212, "in_progress": 71, "late": 55, "rejected_with_notes": 50},
+  "by_entity": {"projects": 149, "connections": 84, "haram": 17, "khulais": 9, "allith": 6},
+  "pdc": {"total": 153, "accepted": 11, "in_progress": 127, "ready_to_send": 30, "need_review": 52, "rejected_with_notes": 28, "late": null}},
+ "attachments_pending": {"سمير أبو غلية": [12, 9], "الصخرة المشرفة": [9, 8], "سعود كونسلت": [5, 26], "ابعاد الرؤية": [3, 14], "المعماريون": [3, 17]},
+ "sap": {"completed": {"count": 972, "amount": 17072917.12}, "in_review": {"count": 348, "amount": 8603614.57}, "not_started": {"count": 56, "amount": 2182939.39}},
+ "sap_extra": {"generator_receipts": 0, "temp_cables": 0},
+ "mashaer": {"source_date": "08/11/2026", "new_today": 34, "total": 581, "replacements_total": 578, "cabinets_total": 3, "meters_total": 0, "stations_total": 0,
+  "replacements": {"done": 59, "in_progress": 19, "awaiting_permits": 127, "surveyed": 373},
+  "cabinets_done": 3, "meters_done": 0, "stations_done": 0},
+ "safety": {"report_label": "التقرير 09 · نوفمبر 2026",
+  "today": {"visits": 88, "pmss_safety": 10, "cms": 56, "pmss_exec": 22, "workshops": 9, "observations": 27, "obs_closed": 27, "obs_open": 0,
+   "violations": 6, "viol_safety": 6, "viol_quality": 0, "viol_amount": 32000, "amount_safety": 32000, "amount_quality": 0, "stops": 0},
+  "cumulative": {"visits": 6771, "workshops": 386, "observations": 1528, "obs_closed": 1528, "obs_open": 0, "close_rate": "100%",
+   "violations": 432, "viol_safety": 397, "viol_quality": 33, "viol_amount": 1812500, "stops": 106},
+  "observations_list": ["عدم وجود بطاقة العامل المشارك","تلف في جسم طفاية الحريق","كسر وتلف في صندوق الاسعافات الالية","عدم اغلاق منطقة العمل","عدم وجود مكافح حريق معتمد","عدم سلامة المعدات (عدم وجود مسمار الامان لباكيت الحفار- تهريب زيت – تلف كفر الكرين)","عدم رفع المخلفات اثناء العمل","عدم التقيد بالترميز الشهري للعدد والادوات","عدم توفير لوحات ارشادية بالموقع","عدد يدوية غير معزولة","عدم حمل بطاقة الامن الصناعي","عدم ارتداء مهام الوقاية الشخصية (قفازات السلامة)"],
+  "quality_observations_list": [],
+  "violations_list": [
+   {"date":"09-11-2026","description":"عدم سلامة المعدات","class":"B","consultant":"المعماريون","contractor":"دار العقيلي","amount":2000},
+   {"date":"09-11-2026","description":"مخالفة عدم تأهيل سائق معدة","class":"B","consultant":"المعماريون","contractor":"دار العقيلي","amount":2000},
+   {"date":"09-11-2026","description":"عدم حمل بطاقة التعميد والتأهيل في موقع العمل","class":"A","consultant":"المعماريون","contractor":"دار العقيلي","amount":7000},
+   {"date":"09-11-2026","description":"عدم حمل بطاقة التعميد والتأهيل في موقع العمل","class":"A","consultant":"المعماريون","contractor":"افق الحجاز","amount":7000},
+   {"date":"09-11-2026","description":"العمل من دون تصاريح العمل","class":"A","consultant":"المعماريون","contractor":"المضايفي","amount":7000},
+   {"date":"09-11-2026","description":"عدم حمل بطاقة التعميد والتأهيل في موقع العمل","class":"A","consultant":"المعماريون","contractor":"رؤى الإنشاء","amount":7000}]}
+}

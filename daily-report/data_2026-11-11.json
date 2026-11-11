@@ -1,0 +1,138 @@
+{
+ "date": "الأربعاء 11/11/2026",
+ "construction": {
+  "assigned_total": 56,
+  "assigned_connections": 54,
+  "assigned_projects": 2,
+  "wo_190_203": 1843,
+  "wo_155": 1721,
+  "cert_accepted_today": 22,
+  "cert_ready_156": 73,
+  "cert_accepted_170": 99,
+  "cert_rejected_171": 7,
+  "fines_amount": 2463.62,
+  "fines_certificates": 105,
+  "close_300": 764,
+  "close_230": 44,
+  "close_with_fine": 0,
+  "close_without_fine": 1
+ },
+ "assets": {
+  "overall": {
+   "accepted": 230,
+   "in_progress": 62,
+   "late": 40,
+   "rejected_with_notes": 38
+  },
+  "by_entity": {
+   "projects": 149,
+   "connections": 84,
+   "haram": 17,
+   "khulais": 9,
+   "allith": 6
+  },
+  "pdc": {
+   "total": 143,
+   "accepted": 19,
+   "in_progress": 121,
+   "ready_to_send": 30,
+   "need_review": 52,
+   "rejected_with_notes": 30,
+   "late": null
+  }
+ },
+ "attachments_pending": {
+  "سمير أبو غلية": [
+   18,
+   8
+  ],
+  "الصخرة المشرفة": [
+   15,
+   8
+  ],
+  "سعود كونسلت": [
+   3,
+   29
+  ],
+  "ابعاد الرؤية": [
+   16,
+   16
+  ],
+  "المعماريون": [
+   4,
+   17
+  ]
+ },
+ "sap": {
+  "completed": {
+   "count": 1005,
+   "amount": 18635638
+  },
+  "in_review": {
+   "count": 382,
+   "amount": 9839656
+  },
+  "not_started": {
+   "count": 5,
+   "amount": 6141
+  }
+ },
+ "sap_extra": {
+  "generator_receipts": 1,
+  "temp_cables": 1
+ },
+ "mashaer": {
+  "source_date": null,
+  "new_today": null,
+  "total": null,
+  "replacements_total": null,
+  "cabinets_total": null,
+  "meters_total": null,
+  "stations_total": null,
+  "replacements": {
+   "done": null,
+   "in_progress": null,
+   "awaiting_permits": null,
+   "surveyed": null
+  },
+  "cabinets_done": null,
+  "meters_done": null,
+  "stations_done": null
+ },
+ "safety": {
+  "report_label": "التقرير 11 · نوفمبر 2026",
+  "today": {
+   "visits": null,
+   "pmss_safety": null,
+   "cms": null,
+   "pmss_exec": null,
+   "workshops": null,
+   "observations": null,
+   "obs_closed": null,
+   "obs_open": null,
+   "violations": null,
+   "viol_safety": null,
+   "viol_quality": null,
+   "viol_amount": null,
+   "amount_safety": null,
+   "amount_quality": null,
+   "stops": null
+  },
+  "cumulative": {
+   "visits": null,
+   "workshops": null,
+   "observations": null,
+   "obs_closed": null,
+   "obs_open": null,
+   "close_rate": null,
+   "violations": null,
+   "viol_safety": null,
+   "viol_quality": null,
+   "viol_amount": null,
+   "stops": null
+  },
+  "observations_list": [],
+  "quality_observations_list": [],
+  "violations_list": []
+ }
+}

@@ -118,6 +118,12 @@ put(S1, 405, f'{c}.close_230')
 a, b = g(f'{c}.close_with_fine'), g(f'{c}.close_without_fine')
 if a is not None and b is not None: st(S1, 407, f'بغرامة {a}/بدون {b}')
 
+from pptx.util import Pt as _Pt
+for _sid, _pt in ((50, 12), (51, 12), (407, 11)):  # keep short labels on one line
+    for _p in sh(S1, _sid).text_frame.paragraphs:
+        for _r in _p.runs:
+            _r.font.size = _Pt(_pt)
+
 # asset receipt (overall)
 r = 'assets'
 for sid, k in [(90, 'accepted'), (92, 'in_progress'), (94, 'late'), (96, 'rejected_with_notes')]:
@@ -140,6 +146,12 @@ if att:
     for row, name in zip(list(tbl.rows)[1:], order):
         for cell, val in zip(row.cells, (name, str(att[name][0]), str(att[name][1]))):
             set_para(cell.text_frame.paragraphs[0], val)
+    from pptx.util import Pt
+    for row in tbl.rows:  # template sizes overflow the box; 10pt fits all 5 rows
+        for cell in row.cells:
+            for para in cell.text_frame.paragraphs:
+                for r in para.runs:
+                    r.font.size = Pt(10)
 
 # ---------- Slide 2: SAP ----------
 sap = g('sap')

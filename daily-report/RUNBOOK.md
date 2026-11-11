@@ -34,6 +34,8 @@ Check spam too (`in:anywhere`). The email BODY holds the WhatsApp texts. The att
   - observations_list: each safety observation as a separate item, text as written (fix only obvious typos in names).
     quality_observations_list: quality observations if any, else [].
   - violations_list: one object per violation: date, description, class (A/B/…), consultant, contractor, amount.
+  - stops_reasons (optional): list of work-stop reasons (أسباب إيقاف العمل), shown on the إيقافات العمل card.
+  - The safety PPTX attachment (SAFETY_VISIT_REPORT) maps 1:1 to these fields if the user uploads it.
   - mashaer: total, new_today, replacements_total, cabinets_total, meters_total, stations_total,
     replacements.done/in_progress/awaiting_permits/surveyed, cabinets_done, meters_done, stations_done, source_date.
   Any safety/mashaer field not mentioned → null (the script writes it as 0). If a whole section is absent from the

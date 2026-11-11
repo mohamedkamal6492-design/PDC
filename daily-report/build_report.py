@@ -249,8 +249,8 @@ if sf:
                 set_paras(box, items)
                 for pp in box.text_frame.paragraphs:
                     sb = pp._p.find(qn('a:pPr')).find(qn('a:spcBef'))
-                    if sb is not None: sb[0].set('val', '250')
-                    for rr in pp.runs: rr.font.size = Pt(9.5 if len(obs) > 8 else 11)
+                    if sb is not None: sb[0].set('val', '120' if len(obs) > 10 else '250')
+                    for rr in pp.runs: rr.font.size = Pt(8.5 if len(obs) > 10 else 9.5 if len(obs) > 8 else 11)
 
     viol = sf.get('violations_list') or []
     if not viol:
@@ -282,7 +282,7 @@ if sf:
                 for cell in row.cells:
                     cell.margin_top = cell.margin_bottom = Emu(12700)
                     for pp in cell.text_frame.paragraphs:
-                        for rr in pp.runs: rr.font.size = Pt(8 if len(viol) > 4 else 9.5)
+                        for rr in pp.runs: rr.font.size = Pt(7.5 if len(viol) > 4 else 8 if len(viol) > 3 else 9.5)
             tshape.height = Emu(sum(r.height for r in rows))
         dist = {}
         for v in viol: dist[v['contractor']] = dist.get(v['contractor'], 0) + 1
@@ -291,6 +291,14 @@ if sf:
         if len(dist) > 2:
             for pp in card.text_frame.paragraphs:
                 pp.runs[0].font.size = Pt(15); pp.runs[1].font.size = Pt(10.5)
+
+    # bottom cards: quality violations + work stops (today)
+    vq, stp = t.get('viol_quality') or 0, t.get('stops') or 0
+    st(S3, 222, f(vq), para=0)
+    st(S3, 222, 'لم تُرصد مخالفات جودة' if not vq else 'مخالفة جودة اليوم', para=1)
+    st(S3, 223, f(stp), para=0)
+    reasons = sf.get('stops_reasons') or []
+    st(S3, 223, 'لا توجد إيقافات عمل' if not stp else ('الأسباب: ' + ' · '.join(reasons) if reasons else 'إيقاف عمل اليوم'), para=1)
 
 p.save(out)
 print('SAVED', out)

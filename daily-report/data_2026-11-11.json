@@ -102,37 +102,87 @@
  "safety": {
   "report_label": "التقرير 11 · نوفمبر 2026",
   "today": {
-   "visits": null,
-   "pmss_safety": null,
-   "cms": null,
-   "pmss_exec": null,
-   "workshops": null,
-   "observations": null,
-   "obs_closed": null,
-   "obs_open": null,
-   "violations": null,
-   "viol_safety": null,
-   "viol_quality": null,
-   "viol_amount": null,
-   "amount_safety": null,
-   "amount_quality": null,
-   "stops": null
+   "visits": 83,
+   "pmss_safety": 11,
+   "cms": 51,
+   "pmss_exec": 21,
+   "workshops": 10,
+   "observations": 37,
+   "obs_closed": 37,
+   "obs_open": 0,
+   "violations": 4,
+   "viol_safety": 4,
+   "viol_quality": 0,
+   "viol_amount": 23000,
+   "amount_safety": 23000,
+   "amount_quality": 0,
+   "stops": 2
   },
   "cumulative": {
-   "visits": null,
-   "workshops": null,
-   "observations": null,
-   "obs_closed": null,
-   "obs_open": null,
-   "close_rate": null,
-   "violations": null,
-   "viol_safety": null,
-   "viol_quality": null,
-   "viol_amount": null,
-   "stops": null
+   "visits": 6932,
+   "workshops": 408,
+   "observations": 1592,
+   "obs_closed": 1592,
+   "obs_open": 0,
+   "close_rate": "100%",
+   "violations": 439,
+   "viol_safety": 404,
+   "viol_quality": 33,
+   "viol_amount": 1845000,
+   "stops": 109
   },
-  "observations_list": [],
+  "observations_list": [
+   "عدم وضوح بيانات تصاريح العمل",
+   "عدم وجود لوحات ارشادية كافية + تلف في بعض اللوحات الارشادية",
+   "عدم اغلاق منطقة العمل",
+   "حواجز حماية متهالكة",
+   "عدم وجود مكافح حريق معتمد",
+   "عدم اكتمال صندوق الاسعافات الاولية",
+   "عدم وجود الترميز الشهري للعدد والادوات",
+   "عمالة غير نظامية",
+   "عدم ازالة المخلفات اثناء العمل",
+   "عدم اضافة جميع العمالة على نموذج فريق العمل",
+   "عدم ارتداء مهام الوقاية الشخصية (كمامات السلامة – نظارات السلامة – قفازات الحماية)",
+   "عدم وجود نموذج فحص لطفاية الحريق"
+  ],
   "quality_observations_list": [],
-  "violations_list": []
+  "violations_list": [
+   {
+    "date": "11-11-2026",
+    "description": "عدم وضع حواجز وإشارات ولوحات مرورية وإنارة ليلية على الطرق وإغلاق منطقة العمل",
+    "class": "A",
+    "consultant": "ابعاد الرؤية",
+    "contractor": "المضايفي",
+    "amount": 7000
+   },
+   {
+    "date": "11-11-2026",
+    "description": "عدم حمل بطاقة التعميد والتأهيل في موقع العمل",
+    "class": "A",
+    "consultant": "الصخرة المشرفة",
+    "contractor": "كنان العربية",
+    "amount": 7000
+   },
+   {
+    "date": "11-11-2026",
+    "description": "استخدام عدد يدوية غير معزولة",
+    "class": "B",
+    "consultant": "سعود كونسلت",
+    "contractor": "كنان العربية",
+    "amount": 2000
+   },
+   {
+    "date": "11-11-2026",
+    "description": "عدم حمل بطاقة التعميد والتأهيل في موقع العمل",
+    "class": "A",
+    "consultant": "سعود كونسلت",
+    "contractor": "كنان العربية",
+    "amount": 7000
+   }
+  ],
+  "stops_reasons": [
+   "حواجز الحماية",
+   "العدد والأدوات"
+  ]
  }
 }

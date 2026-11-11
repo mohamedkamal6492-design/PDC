@@ -190,6 +190,10 @@ if cd is not None and ct is not None:
     st(S2, 115, str(cd)); st(S2, 116, f'منجز {cd} من {ct}')
 put(S2, 120, f'{m}.meters_done')
 put(S2, 125, f'{m}.stations_done')
+for _sid, _d, _t in ((121, 'meters_done', 'meters_total'), (126, 'stations_done', 'stations_total')):
+    _dv, _tv = g(f'{m}.{_d}'), g(f'{m}.{_t}')
+    if _tv:  # assigned work exists -> show progress instead of "no assigned work"
+        st(S2, _sid, f'منجز {_dv or 0} من {_tv}')
 
 # ---------- Slide 3: safety ----------
 sf = g('safety')

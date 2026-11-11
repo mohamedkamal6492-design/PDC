@@ -82,22 +82,22 @@
   "temp_cables": 1
  },
  "mashaer": {
-  "source_date": null,
-  "new_today": null,
-  "total": null,
-  "replacements_total": null,
-  "cabinets_total": null,
-  "meters_total": null,
-  "stations_total": null,
+  "source_date": "11/11/2026",
+  "new_today": 179,
+  "total": 873,
+  "replacements_total": 681,
+  "cabinets_total": 3,
+  "meters_total": 0,
+  "stations_total": 110,
   "replacements": {
-   "done": null,
-   "in_progress": null,
-   "awaiting_permits": null,
-   "surveyed": null
+   "done": 97,
+   "in_progress": 20,
+   "awaiting_permits": 463,
+   "surveyed": 101
   },
-  "cabinets_done": null,
-  "meters_done": null,
-  "stations_done": null
+  "cabinets_done": 3,
+  "meters_done": 0,
+  "stations_done": 49
  },
  "safety": {
   "report_label": "التقرير 11 · نوفمبر 2026",

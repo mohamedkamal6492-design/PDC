@@ -1,0 +1,43 @@
+{
+ "date": "الخميس 12/11/2026",
+ "construction": {
+  "assigned_total": 32, "assigned_connections": 30, "assigned_projects": 2,
+  "wo_190_203": 1853, "wo_155": 1671,
+  "cert_accepted_today": 19, "cert_ready_156": 97, "cert_accepted_170": 93, "cert_rejected_171": 7,
+  "fines_amount": 2738.14, "fines_certificates": 109,
+  "close_300": 765, "close_230": 70, "close_with_fine": 4, "close_without_fine": 23
+ },
+ "assets": {
+  "overall": {"accepted": 244, "in_progress": 60, "late": 45, "rejected_with_notes": 38},
+  "by_entity": {"projects": 149, "connections": 84, "haram": 23, "khulais": 9, "allith": 6},
+  "pdc": {"total": 139, "accepted": 22, "in_progress": 121, "ready_to_send": 30, "need_review": 52, "rejected_with_notes": 30, "late": null}
+ },
+ "attachments_pending": {
+  "سمير أبو غلية": [16, 7],
+  "الصخرة المشرفة": [13, 8],
+  "سعود كونسلت": [5, 32],
+  "ابعاد الرؤية": [25, 15],
+  "المعماريون": [3, 17]
+ },
+ "sap": {
+  "completed": {"count": 1007, "amount": 18755837},
+  "in_review": {"count": 391, "amount": 9897873},
+  "not_started": {"count": 5, "amount": 6141}
+ },
+ "sap_extra": {"generator_receipts": 3, "temp_cables": 0},
+ "mashaer": {
+  "source_date": "12/11/2026", "new_today": 22, "total": 895,
+  "replacements_total": 681, "cabinets_total": 3, "meters_total": 0, "stations_total": 126,
+  "replacements": {"done": 112, "in_progress": 7, "awaiting_permits": 460, "surveyed": 102},
+  "cabinets_done": 3, "meters_done": 0, "stations_done": 55
+ },
+ "safety": {
+  "report_label": "التقرير 12 · نوفمبر 2026",
+  "today": {"visits": null, "pmss_safety": null, "cms": null, "pmss_exec": null, "workshops": null,
+   "observations": null, "obs_closed": null, "obs_open": null, "violations": null, "viol_safety": null,
+   "viol_quality": null, "viol_amount": null, "amount_safety": null, "amount_quality": null, "stops": null},
+  "cumulative": {"visits": null, "workshops": null, "observations": null, "obs_closed": null, "obs_open": null,
+   "close_rate": null, "violations": null, "viol_safety": null, "viol_quality": null, "viol_amount": null, "stops": null},
+  "observations_list": [], "quality_observations_list": [], "violations_list": [], "stops_reasons": []
+ }
+}
